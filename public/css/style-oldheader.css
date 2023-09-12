@@ -1,0 +1,310 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
+:root{
+    --bg: white;
+    /* --bg2: rgb(255, 245, 240);  */
+    --bg2: hwb(27 82% 5%); 
+    --accent: rgb(214, 111, 0);
+    --outline: rgb(25, 13, 0);
+    --border: rgb(223, 223, 223);
+
+}
+* {
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    background: var(--bg);
+}
+
+.navbar-header {
+    display: flex;
+    position: sticky;
+    top: 0;
+    width: 240px;
+    height: 100vh;
+    padding: 0 10%;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    border-bottom: 1px solid var(--border);
+    background: white;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+    /* old-navbar */
+    position: fixed; 
+    width: 100%;
+    height: auto; 
+    flex-direction: row;
+}
+
+.navbar-header * {
+    padding: 10px 0;
+}
+
+.navbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 100;
+    /* old-navbar */
+    flex-direction: row;
+}
+
+.navbar a {
+    font-size: 1.2rem;
+    color: var(--outline);
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 0.5rem;
+    transition: .2s;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    color: var(--accent);
+}
+
+.dropdown{
+    position: relative;
+}
+
+.dropdown-menu-area{
+    position: absolute;
+    width: 300px;
+    height: 100vh;
+    padding-top: 5px;
+    opacity: 0.5;
+    background: red;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+}
+
+.dropdown-menu-area.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.dropdown-select-menu{
+    background-color: rgb(255, 255, 255);
+    min-height: 100%;
+    padding: .75rem;
+    border-radius: .25rem;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0, .1);
+}
+
+
+.information-grid{
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    gap: 2rem;
+}
+
+.dropdown-heading {
+    margin-left: 1rem;
+}
+
+.dropdown-links {
+    display: flex;
+    flex-direction: column;
+    gap: .25px;
+}
+
+a.mt {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.content {
+    padding: 8vh 8vh;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    min-height: 100%
+}
+
+.menu-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    line-height: 0;
+    display: none;
+    padding: 0;
+}
+
+.menu-btn .line {
+    transition: 200ms ease-out;
+    transform-origin: center;
+}
+
+.menu-btn[aria-expanded="true"] :is(.top, .bottom){
+    y: 45;
+}
+
+.menu-btn[aria-expanded="true"] .top{
+    rotate: 45deg;
+}
+
+.menu-btn[aria-expanded="true"] .bottom{
+    rotate: -45deg;
+}
+
+.menu-btn[aria-expanded="true"] .middle{
+    width: 0;
+    opacity: 0;
+    x: 45;
+}
+
+/* .menu-btn[aria-expanded="true"] .top {
+    x
+} */
+
+.header {
+    display: flex;
+    height: 80vh;
+    background-color: var(--bg2);
+    padding: 3vh 10%;
+    width: calc(100% - 240px)
+}
+
+.header-image{
+    float: right;
+    height: 100%;
+    padding: 0;
+}
+
+.header-content {
+    margin-right: 10%;
+    align-self: center;
+}
+
+.header h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-line {
+    width: 80%;
+    height: 1px;
+    background-color: black;
+    margin: 20px auto;
+  }
+
+  .btn-submit {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Button Colors */
+  .btn-submit {
+    color: #fff; /* Text color */
+    background-color: #007bff; /* Background color */
+  }
+  
+  /* Button Hover Effect */
+  .btn-submit:hover {
+    background-color: #0056b3; /* New background color on hover */
+  }
+  
+  /* Button Active Effect */
+  .btn-submit:active {
+    background-color: #003366; /* New background color on button press */
+  }
+
+  .modal-window {
+    border: none;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+    padding: 2vh;
+    border-radius: .25rem;
+  }
+
+  .close-button {
+    position: absolute;
+    top: 0.5rem;
+    right: 1rem;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: #555;
+}
+
+.btn-primary-wide {
+   
+    display: block;
+    width: 100%;
+    margin-top: 0.5rem;
+    padding: 0.5rem 0.5rem;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 0.5rem;
+    
+}
+
+.btn-primary-wide :hover {
+    
+        color: #0a58cc;
+    }
+
+.table-checkbox {
+    text-align: center;
+}
+@media screen and (max-width:1100px){
+
+}
+
+@media screen and (max-width: 785px){
+    .navbar-header {
+        padding: 0 3%;
+    }
+    .navbar-header * {
+        padding: 10px 0;
+    }
+}
+
+@media screen and (max-width: 520px){
+    .navbar-header{
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        max-height: 68px;
+        overflow: hidden;
+        transition: .3s ease-out;
+    }
+    .navbar-header.expanded{
+        /* Make this higher if you want to fit over 8 navbar menu items in mobile view__ */
+        max-height: 500px;
+    }
+    .navbar {
+        /* display: none; */
+    flex-direction: column;
+    order: 1;
+    width: 100%;
+    padding-top: 0;
+    }
+    .menu-btn {
+        display: inline;
+    }
+    .logo {
+        margin-right: 10px;
+    }
+}
+
